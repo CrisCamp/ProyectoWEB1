@@ -12,24 +12,20 @@
 
         // $txtID = $registro['ID']; ya no es necesario hacer esto porque el metodo get ya nos da el valor
         $titulo = $registro['titulo'];
-        $subtitulo = $registro['subtitulo'];
         $descripcion = $registro['descripcion'];
         $imagen = $registro['imagen'];
     }
 
     if($_POST){
         $txtID = (isset($_POST['txtID']))?$_POST['txtID']:"";
-        $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
         $titulo = (isset($_POST['titulo']))?$_POST['titulo']:"";        
         $descripcion = (isset($_POST['descripcion']))?$_POST['descripcion']:"";
     
         //la variable conexion se toma del documento bd.php
         $sentencia=$conexion->prepare("UPDATE tbl_entradas SET
-        fecha = :fecha, titulo = :titulo, descripcion = :descripcion WHERE ID =:id;");
+        titulo = :titulo, descripcion = :descripcion WHERE ID =:id;");
         $sentencia->bindParam(":id",$txtID);
-        //donde encuentres fecha pon la varible $fecha en la sentencia de arriba
-        $sentencia->bindParam(":fecha",$fecha);
-        //donde encuentres subtitulo pon la varible $subtitulo en la sentencia de arriba
+        //donde encuentres titulo pon la varible $titulo en la sentencia de arriba
         $sentencia->bindParam(":titulo",$titulo);
         //donde encuentres descripcion pon la varible $descripcion en la sentencia de arriba
         $sentencia->bindParam(":descripcion",$descripcion);
@@ -86,20 +82,14 @@
             </div>
 
             <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha:</label>
-            <input type="date" value="<?php echo $registro["fecha"]?>"
-                class="form-control" name="fecha" id="fecha" aria-describedby="helpId" placeholder="Fecha">
-            </div>
-
-            <div class="mb-3">
             <label for="titulo" class="form-label">Titulo:</label>
-            <input type="text" value="<?php echo $registro["titulo"]?>"
+            <input type="text" value="<?php echo $titulo?>"
                 class="form-control" name="titulo" id="titulo" aria-describedby="helpId" placeholder="Titulo">
             </div>
 
             <div class="mb-3">
               <label for="descripcion" class="form-label">Descripcion:</label>
-              <input type="text" value="<?php echo $registro["descripcion"]?>"
+              <input type="text" value="<?php echo $descripcion?>"
                 class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Descripcion">
             </div>
 

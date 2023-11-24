@@ -2,7 +2,6 @@
 include("../../bd.php");
 
 if($_POST){
-    $fecha = (isset($_POST['fecha']))?$_POST['fecha']:"";
     $titulo = (isset($_POST['titulo']))?$_POST['titulo']:"";
     $descripcion = (isset($_POST['descripcion']))?$_POST['descripcion']:"";
     $imagen = (isset($_FILES["imagen"]["name"]))?$_FILES["imagen"]["name"]:"";
@@ -20,11 +19,9 @@ if($_POST){
 
     // Definir 
     $sentencia=$conexion->prepare("INSERT INTO tbl_entradas 
-    (ID, fecha, titulo, descripcion, imagen) VALUES 
-    (NULL, :fecha, :titulo, :descripcion, :imagen);");
+    (ID, titulo, descripcion, imagen) VALUES 
+    (NULL, :titulo, :descripcion, :imagen);");
 
-    //donde encuentres fecha pon la varible $fecha en la sentencia de arriba
-    $sentencia->bindParam(":fecha",$fecha);
     //donde encuentres titulo pon la varible $titulo en la sentencia de arriba
     $sentencia->bindParam(":titulo",$titulo);
     //donde encuentres descripcion pon la varible $descripcion en la sentencia de arriba
@@ -46,11 +43,6 @@ include("../../templates/header.php"); ?>
     </div>
     <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha:</label>
-            <input type="date"
-                class="form-control" name="fecha" id="fecha" aria-describedby="helpId" placeholder="Fecha">
-            </div>
 
             <div class="mb-3">
             <label for="titulo" class="form-label">Titulo:</label>

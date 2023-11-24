@@ -44,11 +44,10 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Titulo y Subtitulo</th>
+                        <th scope="col">Titulo</th>
                         <th scope="col">Imagen</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Categoria y Cliente</th>
-                        <th scope="col">URL</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Acciones:</th>
                     </tr>
                 </thead>
@@ -56,13 +55,12 @@
                     <?php foreach($lista_portafolio as $registros){?>
                     <tr class="">
                         <td scope="col"><?php echo $registros['ID'];?></td>
-                        <td scope="col"><h6><?php echo $registros['titulo'];?></h6><?php echo $registros['subtitulo'];?></td>
+                        <td scope="col"><h6><?php echo $registros['titulo'];?></h6></td>
                         <!-- cambiaremos la sintaxis de la imagen cambiandola por una etiqueta img para mostrar la imagen -->
                         <td scope="col"><img width="100" src="../../../assets/img/portfolio/<?php echo $registros['imagen'];?>"/></td>
                         <!-- la sentencia antigua solo muestra el nombre del archivo: <td scope="col"><?php //echo $registros['imagen'];?></td>-->
                         <td scope="col"><?php echo $registros['descripcion'];?></td>
-                        <td scope="col"> - <?php echo $registros['categoria'];?> - <?php echo $registros['cliente'];?></td>
-                        <td scope="col"><?php echo $registros['url'];?></td>
+                        <td scope="col"><?php echo $registros['categoria'];?></td>
                         <td scope="col">
                             <a name="" id="" class="btn btn-info" href="editar.php?txtID=<?php echo $registros['ID']; ?>" role="button">Editar</a>
                             <a name="" id="" class="btn btn-danger" href="index.php?txtID=<?php echo $registros['ID']; ?>" role="button">Eliminar</a>

@@ -1,7 +1,7 @@
 <?php 
   session_start();
-  $url_base="http://localhost/proyecto/admin";
-  $url_imagen="http://localhost/proyecto/assets/img/Ceti.webp";
+  $url_base="http://localhost/ProyectoWEB1/admin";
+  $url_imagen="http://localhost/ProyectoWEB1/assets/img/Ceti.webp";
   if(!isset($_SESSION['usuario'])){
     header("Location:".$url_base."/login.php");
   }
@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>../../index.php">Ver template</a>
+                  <a class="nav-link" href="<?php echo $url_base;?>../index.php">Ver template</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo $url_base;?>/secciones/servicios/">Servicios</a>

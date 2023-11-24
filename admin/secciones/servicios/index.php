@@ -22,7 +22,6 @@ $lista_servicios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 <div class="card">
     <div class="card-header">
     <a name="" id="" class="btn btn-primary" href="crear.php" role="button">Agregar registros</a>
-    Servicios
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">

@@ -12,40 +12,28 @@ if (isset($_GET['txtID'])){
 
     // $txtID = $registro['ID']; ya no es necesario hacer esto porque el metodo get ya nos da el valor
     $titulo = $registro['titulo'];
-    $subtitulo = $registro['subtitulo'];
     $imagen = $registro['imagen'];
     $descripcion = $registro['descripcion'];
-    $cliente = $registro['cliente'];
     $categoria = $registro['categoria'];
-    $url = $registro['url'];
 
 }
 //se verifica si llegan los datos del formulario
 if($_POST){
     $txtID = (isset($_POST['txtID']))?$_POST['txtID']:"";
     $titulo = (isset($_POST['titulo']))?$_POST['titulo']:"";
-    $subtitulo = (isset($_POST['subtitulo']))?$_POST['subtitulo']:"";
     $descripcion = (isset($_POST['descripcion']))?$_POST['descripcion']:"";
-    $cliente = (isset($_POST['cliente']))?$_POST['cliente']:"";
     $categoria = (isset($_POST['categoria']))?$_POST['categoria']:"";
-    $url = (isset($_POST['url']))?$_POST['url']:"";
 
     //la variable conexion se toma del documento bd.php
     $sentencia=$conexion->prepare("UPDATE tbl_portafolio SET
-    titulo = :titulo, subtitulo = :subtitulo, descripcion = :descripcion, cliente = :cliente, categoria = :categoria, url = :url WHERE ID =:id;");
+    titulo = :titulo, descripcion = :descripcion, categoria = :categoria WHERE ID =:id;");
     $sentencia->bindParam(":id",$txtID);
     //donde encuentres titulo pon la varible $titulo en la sentencia de arriba
     $sentencia->bindParam(":titulo",$titulo);
-    //donde encuentres subtitulo pon la varible $subtitulo en la sentencia de arriba
-    $sentencia->bindParam(":subtitulo",$subtitulo);
     //donde encuentres descripcion pon la varible $descripcion en la sentencia de arriba
     $sentencia->bindParam(":descripcion",$descripcion);
-    //donde encuentres cliente pon la varible $cliente en la sentencia de arriba
-    $sentencia->bindParam(":cliente",$cliente);
     //donde encuentres categoria pon la varible $categoria en la sentencia de arriba
     $sentencia->bindParam(":categoria",$categoria);
-    //donde encuentres url pon la varible $url en la sentencia de arriba
-    $sentencia->bindParam(":url",$url); 
 
     $sentencia->execute();
 
@@ -100,12 +88,6 @@ include("../../templates/header.php"); ?>
                 <input value="<?php echo $titulo;?>" type="text"
                     class="form-control" name="titulo" id="titulo" aria-describedby="helpId" placeholder="Titulo">
             </div>
-            <!-- Subtitulo -->
-            <div class="mb-3">
-              <label for="subtitulo" class="form-label">Subtitulo:</label>
-              <input value="<?php echo $subtitulo;?>" type="text"
-                class="form-control" name="subtitulo" id="subtitulo" aria-describedby="helpId" placeholder="Subtitulo">              
-            </div>
             <!-- Imagen -->
             <!-- este input debe ser de tipo file ya que es la imagen bs5-form-file -->
             <div class="mb-3">
@@ -121,23 +103,11 @@ include("../../templates/header.php"); ?>
                 <!--se puede tambien manejar como un texarea --> <input value="<?php echo $descripcion;?>" type="text"
                 class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Descripcion">              
             </div>
-            <!-- Cliente -->
-            <div class="mb-3">
-              <label for="cliente" class="form-label">Cliente:</label>
-              <input value="<?php echo $cliente;?>" type="text"
-                class="form-control" name="cliente" id="cliente" aria-describedby="helpId" placeholder="Cliente">              
-            </div>
             <!-- Categoria -->
             <div class="mb-3">
               <label for="categoria" class="form-label">Categoria:</label>
               <input value="<?php echo $categoria;?>" type="text"
                 class="form-control" name="categoria" id="categoria" aria-describedby="helpId" placeholder="Categoria">
-            </div>
-            <!-- URL -->
-            <div class="mb-3">
-              <label for="url" class="form-label">URL:</label>
-              <input value="<?php echo $url;?>" type="text"
-                class="form-control" name="url" id="url" aria-describedby="helpId" placeholder="URL del proyecto">
             </div>
 
             <button type="submit" class="btn btn-success">Actulizar</button>

@@ -1,10 +1,13 @@
 <?php 
 include("../admin/bd.php");
-$url_principal = "http://localhost/proyecto/principal/index.php";
-$url_secundaria = "http://localhost/proyecto/principal/about.php";
-$url_tercearia = "http://localhost/proyecto/principal/login.php";
-$url_cuarta = "http://localhost/proyecto/principal/signup.php";
-$url_css = "http://localhost/proyecto/css/styles.css";
+$url_index = "http://localhost/ProyectoWEB1/principal/index.php";
+$url_about = "http://localhost/ProyectoWEB1/principal/about.php";
+$url_login = "http://localhost/ProyectoWEB1/principal/login.php";
+$url_signup = "http://localhost/ProyectoWEB1/principal/signup.php";
+$url_css = "http://localhost/ProyectoWEB1/css/styles.css";
+
+//Url´s para los los templates
+$url_img = "http://localhost/ProyectoWEB1/assets/img";
 
 //seleccionar registros de servicios
 $sentencia=$conexion->prepare("SELECT * FROM tbl_servicios;");
@@ -56,12 +59,12 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_principal?>#services">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_principal?>#portfolio">Recursos Extra</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_secundaria?>#about">Acerca</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_secundaria?>#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_tercearia?>#login">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_cuarta?>#signup">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#portfolio">Carreras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#about">Acerca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#team">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_login?>#login">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_signup?>#signup">Sign up</a></li>
                     <form class="my-2 my-lg-0" action="/action_page.php">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search">
@@ -81,6 +84,6 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
             <div class="masthead-subheading">Bienvenido</div>
             <div class="masthead-heading text-uppercase">Un gusto conocerte</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="<?php echo $url_principal?>#services">Conoce más</a>
+            <a class="btn btn-primary btn-xl text-uppercase" href="<?php echo $url_index?>#services">Conoce más</a>
         </div>
     </header>
