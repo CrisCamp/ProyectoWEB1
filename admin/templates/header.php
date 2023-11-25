@@ -45,23 +45,33 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>../index.php">Ver template</a>
+                  <div class="dropdown show">
+                    <!-- para dar el efecto de la clase nav-link es necesario agregarlo junto a las demas clases eliminando el diseño del boton inicial -->
+                    <a class="btn nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Template Principal
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/servicios/">Servicios</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/portafolio/">Carreras</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/entradas/">Entradas</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/equipo/">Equipo</a>
+                    </div>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>/secciones/servicios/">Servicios</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>/secciones/portafolio/">Portafolio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>/secciones/entradas/">Entradas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>/secciones/equipo/">Equipo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $url_base;?>/secciones/usuarios/">Usuarios</a>
-                </li>
+                <div class="dropdown show">
+                    <!-- para dar el efecto de la clase nav-link es necesario agregarlo junto a las demas clases eliminando el diseño del boton inicial -->
+                    <a class="btn nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Template Secundario
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/IC/">Informacion de carreras</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/encuestas/">Encuestas y Formularios</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/becas/">Becas y apoyos</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/experiencias/">Experiencias</a>
+                  </div>
+                </div>
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo $url_base;?>/cerrar.php">Cerrar Sesión</a>
                 </li>
