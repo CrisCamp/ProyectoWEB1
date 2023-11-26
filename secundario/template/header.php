@@ -1,33 +1,16 @@
 <?php 
-include("../admin/bd.php");
-$url_index = "http://localhost/ProyectoWEB1/principal/index.php";
-$url_about = "http://localhost/ProyectoWEB1/principal/about.php";
-$url_login = "http://localhost/ProyectoWEB1/principal/login.php";
-$url_signup = "http://localhost/ProyectoWEB1/principal/signup.php";
-$url_css = "http://localhost/ProyectoWEB1/css/styles.css";
+    include("../admin/bd.php");
+    $url_index = "http://localhost/ProyectoWEB1/secundario/index.php";
+    $url_encuesta = "http://localhost/ProyectoWEB1/secundario/";
+    $url_apoyo = "http://localhost/ProyectoWEB1/secundario/";
+    $url_testimonio = "http://localhost/ProyectoWEB1/secundario/";
+    $url_perfil = "http://localhost/ProyectoWEB1/secundario/";
+    $url_css = "http://localhost/ProyectoWEB1/css/styles.css";
 
-//Url´s para las imagenes de los templates
-$url_img = "http://localhost/ProyectoWEB1/assets/img";
-
-//seleccionar registros de servicios
-$sentencia=$conexion->prepare("SELECT * FROM tbl_servicios;");
-$sentencia->execute();
-$lista_servicios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-//seleccionar registros de portafolio
-$sentencia=$conexion->prepare("SELECT * FROM tbl_portafolio;");
-$sentencia->execute();
-$lista_portafolio=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-//seleccionar registros de entradas
-$sentencia=$conexion->prepare("SELECT * FROM tbl_entradas;");
-$sentencia->execute();
-$lista_entradas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
-//seleccionar registros de equipo
-$sentencia=$conexion->prepare("SELECT * FROM tbl_equipo;");
-$sentencia->execute();
-$lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+    //seleccionar registros de informacion
+    $sentencia=$conexion->prepare("SELECT * FROM tbl_informacion;");
+    $sentencia->execute();
+    $lista_informacion=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -59,12 +42,11 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#services">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#portfolio">Carreras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#about">Acerca</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_login?>#login">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_signup?>#signup">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>">Informacion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>">Encuestas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>">Apoyos Economicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_perfil?>">Perfil</a></li>
                     <form class="my-2 my-lg-0" action="/action_page.php">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search">
@@ -83,7 +65,7 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">Bienvenido</div>
-            <div class="masthead-heading text-uppercase">Un gusto conocerte</div>
+            <div class="masthead-heading text-uppercase">Cristopher Emanuel</div>
             <a class="btn btn-primary btn-xl text-uppercase" href="<?php echo $url_index?>#services">Conoce más</a>
         </div>
     </header>

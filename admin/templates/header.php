@@ -1,7 +1,10 @@
 <?php 
   session_start();
+  
   $url_base="http://localhost/ProyectoWEB1/admin";
   $url_imagen="http://localhost/ProyectoWEB1/assets/img/Ceti.webp";
+  $url_pdf = "http://localhost/ProyectoWEB1/assets/pdf";
+
   if(!isset($_SESSION['usuario'])){
     header("Location:".$url_base."/login.php");
   }
