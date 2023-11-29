@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="assets/img/team/<?php echo $registro["imagen"]?>" alt="..." />
+                        <img class="mx-auto rounded-circle" src="<?php echo $url_img ?>/team/<?php echo $registro["imagen"]?>" alt="..." />
                         <h4><?php echo $registro["nombrecompleto"]?></h4>
                         <p class="text-muted"><?php echo $registro["puesto"]?></p>
                         <a class="btn btn-dark btn-social mx-2" href="<?php echo $registro["X"]?>" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>

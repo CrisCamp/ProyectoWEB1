@@ -7,6 +7,10 @@
         $sentencia->bindParam(":id",$txtID);
         $sentencia->execute();
     }
+    if (isset($_GET['txtID'])){
+        // recepcionar el txtID que se obtiene de index.php en una variable con el mismo nombre 
+        $txtID = (isset($_GET['txtID']))?$_GET['txtID']:"";
+    }    
 
     //seleccionar registros
     // esta parte se encarga de extraer los datos de la bdd para luego ser mostradas en la tabla

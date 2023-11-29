@@ -1,5 +1,5 @@
 <?php 
-include("../../bd.php");
+include("../../../bd.php");
 
 if($_POST){
     $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
@@ -7,8 +7,8 @@ if($_POST){
 
     // Definir
     $sentencia=$conexion->prepare("INSERT INTO tbl_informacion 
-    (ID, nombre, plan, , , ) VALUES 
-    (NULL, :nombre, :plan, :, :, :);");
+    (ID, nombre, plan) VALUES 
+    (NULL, :nombre, :plan);");
 
     //donde encuentres nombre pon la varible $nombre en la sentencia de arriba
     $sentencia->bindParam(":nombre",$nombre);
@@ -21,7 +21,7 @@ if($_POST){
     header("Location:index.php?mensaje=".$mensaje);
 }
 
-include("../../templates/header.php"); ?>
+include("../../../templates/header.php"); ?>
 
 <div class="card">
     <div class="card-header">
@@ -49,4 +49,4 @@ include("../../templates/header.php"); ?>
     <div class="card-footer text-muted">
     </div>
 </div>
-<?php include("../../templates/footer.php"); ?>
+<?php include("../../../templates/footer.php"); ?>

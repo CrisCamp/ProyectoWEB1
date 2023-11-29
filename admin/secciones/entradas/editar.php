@@ -41,7 +41,7 @@
           $nombre_archivo_imagen = ($imagen!="")? $fecha_imagen->getTimestamp()."_".$imagen:"";
           //se sube o se mueve la nueva imagen a la ruta de assets, tmp: nombre temporal 
           $tmp_imagen=$_FILES["imagen"]["tmp_name"];
-          move_uploaded_file($tmp_imagen,"../../../assets/img/about/".$nombre_archivo_imagen);
+          move_uploaded_file($tmp_imagen,"../../../assets/img/team/".$nombre_archivo_imagen);
     
           //se debe hacer una consulta a la bdd ya que esta contiene los nombres establecidos por el proceso de nombrado que se hizo en crear.php
           $sentencia=$conexion->prepare("SELECT imagen FROM tbl_entradas WHERE id=:id;");
@@ -51,8 +51,8 @@
           $registro_imagen=$sentencia->fetch(PDO::FETCH_LAZY);
           // para eliminar la imagen antigua
           if(isset($registro_imagen["imagen"])){
-              if(file_exists("../../../assets/img/about/".$registro_imagen["imagen"]));
-              unlink("../../../assets/img/about/".$registro_imagen["imagen"]);
+              if(file_exists("../../../assets/img/team/".$registro_imagen["imagen"]));
+              unlink("../../../assets/img/team/".$registro_imagen["imagen"]);
           }
     
           //se hace la actualizacion de la imagen
@@ -95,7 +95,7 @@
 
             <div class="mb-3">
               <label for="imagen" class="form-label">Imagen:</label>
-              <img width="100" src="../../../assets/img/about/<?php echo $imagen;?>"/>
+              <img width="100" src="../../../assets/img/team/<?php echo $imagen;?>"/>
               <input type="file"
                 class="form-control" name="imagen" id="imagen" aria-describedby="helpId" placeholder="Imagen">
             </div>
