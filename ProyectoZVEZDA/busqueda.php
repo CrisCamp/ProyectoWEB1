@@ -5,7 +5,7 @@
   require 'bdd/databaseP.php';
 
   $busqueda = $_GET['buscar'];
-  $consulta = "SELECT * FROM tablero WHERE contenido LIKE '%$busqueda%'";
+  $consulta = "SELECT * FROM tablero WHERE contenido LIKE '%$busqueda%' OR titulo LIKE '%$busqueda%'";
   $result = mysqli_query($conn, $consulta);
 ?>
 <!DOCTYPE html>
