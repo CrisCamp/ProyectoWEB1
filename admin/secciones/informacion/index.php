@@ -46,7 +46,7 @@
                         <td>
                             <a name="" id="" class="btn btn-info" href="editar.php?txtID=<?php echo $registros['ID']; ?>" role="button">Editar</a>
                             <a name="" id="" class="btn btn-danger" href="index.php?txtID=<?php echo $registros['ID']; ?>" role="button">Eliminar</a>
-                            <a name="" id="" class="btn btn-secondary" href="/materias/indexMaterias.php?txtID=<?php echo $registros['ID']; ?>" role="button">Ver Materias</a>
+                            <a name="" id="" class="btn btn-secondary" href="materias/indexMaterias.php?txtID=<?php echo $registros['ID']; ?>" role="button">Ver Materias</a>
                         </td>
                     </tr>
                     <?php } ?>

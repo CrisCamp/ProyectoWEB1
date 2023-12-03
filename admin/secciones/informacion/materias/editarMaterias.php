@@ -10,26 +10,24 @@
         $sentencia->execute();
         $registro=$sentencia->fetch(PDO::FETCH_LAZY);
 
+        $id_info = $registro['id_info']; 
         $nombre = $registro['nombre'];
-        $plan = $registro['plan'];
+        $pdf = $registro['plan'];
     }
 
     if($_POST){
         $txtID = (isset($_POST['txtID']))?$_POST['txtID']:"";
         $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
-        $plan = (isset($_POST['plan']))?$_POST['plan']:"";
+        $pdf = (isset($_FILES["pdf"]["name"]))?$_FILES["pdf"]["name"]:"";
 
         //la variable conexion se toma del documento bd.php
         $sentencia=$conexion->prepare("UPDATE tbl_materias SET
-        nombre = :nombre, plan = :plan WHERE ID =:id;");
+        nombre = :nombre WHERE ID =:id;");
 
         $sentencia->bindParam(":id",$txtID);
-        //donde encuentres nombre pon la varible $nombre en la sentencia de arriba
         $sentencia->bindParam(":nombre",$nombre);
-        //donde encuentres plan pon la varible $plan en la sentencia de arriba
-        $sentencia->bindParam(":plan",$plan);
-    
         $sentencia->execute();
+
         //Se debe verificar que el archivo se haya enviado
         if($_FILES["pdf"]["name"] != ""){
             //se obtienen los datos de la pdf
@@ -39,29 +37,27 @@
             $nombre_archivo_pdf = ($pdf!="")? $fecha_pdf->getTimestamp()."_".$pdf:"";
             //se sube o se mueve la nueva pdf a la ruta de assets, tmp: nombre temporal
             $tmp_pdf=$_FILES["pdf"]["tmp_name"];
-            move_uploaded_file($tmp_pdf, $url_pdf.$nombre_archivo_pdf);
+            move_uploaded_file($tmp_pdf,"../../../../assets/documents/".$nombre_archivo_pdf);
     
             //se debe hacer una consulta a la bdd ya que esta contiene los nombres establecidos por el proceso de nombrado que se hizo en crear.php
-            $sentencia=$conexion->prepare("SELECT pdf FROM tbl_materias WHERE id=:id;");
+            $sentencia=$conexion->prepare("SELECT plan FROM tbl_materias WHERE id=:id;");
             //donde encuentres txtID pon la varible $txtID en la sentencia de arriba
             $sentencia->bindParam(":id",$txtID);
             $sentencia->execute();
             $registro_pdf=$sentencia->fetch(PDO::FETCH_LAZY);
             // para eliminar la pdf antigua
-            if(isset($registro_pdf["pdf"])){
-                if(file_exists($url_pdf.$registro_pdf["pdf"]));
-                unlink($url_pdf.$registro_pdf["pdf"]);
+            if(isset($registro_pdf["plan"])){
+                if(file_exists("../../../../assets/documents/".$registro_pdf["plan"]));
+                unlink("../../../../assets/documents/".$registro_pdf["plan"]);
             }
-    
             //se hace la actualizacion de la pdf
-            $sentencia=$conexion->prepare("UPDATE tbl_materias SET pdf = :pdf WHERE ID =:id;");      
-            $sentencia->bindParam(":pdf",$nombre_archivo_pdf);
+            $sentencia=$conexion->prepare("UPDATE tbl_materias SET plan = :plan WHERE ID =:id;");      
+            $sentencia->bindParam(":plan",$nombre_archivo_pdf);
             $sentencia->bindParam(":id",$txtID);
             $sentencia->execute();
         }
-   
-        $mensaje="Registro modificado con éxito.";
-        header("Location:index.php?mensaje=".$mensaje);
+        // Es necesario tener la variable id_info como referencia al hacer los cambios de pagina
+        header("Location:indexMaterias.php?txtID=".$id_info);
     }    
 
     include("../../../templates/header.php"); 
@@ -88,15 +84,14 @@
             <!-- Plan de estudio -->
             <!-- este input debe ser de tipo file ya que es la pdf bs5-form-file -->
             <div class="mb-3">
-              <label for="pdf" class="form-label">Plan de estudio:</label>
-              <!-- Por cuestiones de seguridad o permisos del usuario el navegador no permitira visualizar el valor de la pdf -->
-              <!-- Sentencia anterior solo inserta el nombre: <?php //echo $pdf;?> -->
-              <img width="100" src="<?php echo $url_pdf;?>/<?php echo $pdf;?>"/>
-              <input type="file" class="form-control" name="pdf" id="pdf" placeholder="Plan de estudio" aria-describedby="fileHelpId">              
+              <label for="pdf" class="form-label">Plan de estudio: <?php echo $pdf?></label>
+              <input type="file"
+              class="form-control" name="pdf" id="pdf" placeholder="Plan de estudio" aria-describedby="fileHelpId">              
             </div>  
 
             <button type="submit" class="btn btn-success">Editar</button>
-            <a name="" id="" class="btn btn-primary" href="index.php" role="button">Cancelar</a>
+            <!-- Es necesario tener la variable id_info como referencia al hacer los cambios de pagina -->
+            <a name="" id="" class="btn btn-primary" href="indexMaterias.php?txtID=<?php echo $id_info?>" role="button">Cancelar</a>
         </form>
     </div>    
     <div class="card-footer text-muted">

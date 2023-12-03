@@ -14,7 +14,7 @@
       //esta sentecia sirve para mover la imagen a otra carpeta
       $tmp_imagen=$_FILES["imagen"]["tmp_name"];
       if($tmp_imagen!=""){
-        //porfolio en lugar de portafolio
+        //portfolio en lugar de portafolio
         move_uploaded_file($tmp_imagen,"../../../assets/img/portfolio/".$nombre_archivo_imagen);
       }
 

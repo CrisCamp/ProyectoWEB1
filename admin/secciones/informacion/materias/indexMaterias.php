@@ -7,22 +7,23 @@
         $sentencia->bindParam(":id",$txtID);
         $sentencia->execute();
     }
+    // RECEPCION PARA BOTON "AGREGAR REGISTROS"
     if (isset($_GET['txtID'])){
         // recepcionar el txtID que se obtiene de index.php en una variable con el mismo nombre 
-        $txtID = (isset($_GET['txtID']))?$_GET['txtID']:"";
-    }    
-
+        $ID_carrera = (isset($_GET['txtID']))?$_GET['txtID']:"";
+    }
     //seleccionar registros
     // esta parte se encarga de extraer los datos de la bdd para luego ser mostradas en la tabla
-    $sentencia=$conexion->prepare("SELECT * FROM tbl_materias;");
+    $sentencia=$conexion->prepare("SELECT * FROM tbl_materias WHERE id_info = $ID_carrera;");
     $sentencia->execute();
-    $lista_informacion=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $lista_materias=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
     include("../../../templates/header.php"); ?>
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">Agregar registros</a>
+        <a name="" id="" class="btn btn-primary" href="crearMaterias.php?txtID=<?php echo $ID_carrera;?>" role="button">Agregar registros</a>
+        <a name="" id="" class="btn btn-warning" href="../index.php" role="button">Regresar</a>
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">

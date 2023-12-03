@@ -12,6 +12,15 @@
     $sentencia->execute();
     $lista_informacion=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
+    //seleccionar registros de materias
+    $sentencia=$conexion->prepare("SELECT * FROM tbl_materias;");
+    $sentencia->execute();
+    $lista_materias=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    // Devolver datos como respuesta JSON esta se usara por medio de un script que sera llamado en el template de footer.php
+    $response = array('informacion' => $lista_informacion, 'materias' => $lista_materias);
+    // header('Content-Type: application/json');
+    // echo json_encode($response);
 ?>
 <!DOCTYPE html>
 <html lang="en">

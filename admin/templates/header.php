@@ -1,9 +1,8 @@
 <?php 
   session_start();
   
-  $url_base="http://localhost/ProyectoWEB1/admin";
+  $url_base="http://localhost/ProyectoWEB1/admin/secciones";
   $url_imagen="http://localhost/ProyectoWEB1/assets/img/Ceti.webp";
-  $url_pdf = "http://localhost/ProyectoWEB1/assets/pdf";
 
   if(!isset($_SESSION['usuario'])){
     header("Location:".$url_base."/login.php");
@@ -55,10 +54,10 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/servicios/">Servicios</a>
-                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/portafolio/">Carreras</a>
-                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/entradas/">Entradas</a>
-                      <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/equipo/">Equipo</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/servicios/">Servicios</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/portafolio/">Carreras</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/entradas/">Entradas</a>
+                      <a class="dropdown-item" href="<?php echo $url_base;?>/equipo/">Equipo</a>
                     </div>
                   </div>
                 </li>
@@ -69,10 +68,10 @@
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/IC/">Informacion de carreras</a>
-                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/encuestas/">Encuestas y Formularios</a>
-                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/becas/">Becas y apoyos</a>
-                    <a class="dropdown-item" href="<?php echo $url_base;?>/secciones/experiencias/">Experiencias</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/informacion/">Informacion de carreras</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/encuestas/">Encuestas y Formularios</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/becas/">Becas y apoyos</a>
+                    <a class="dropdown-item" href="<?php echo $url_base;?>/experiencias/">Experiencias</a>
                   </div>
                 </div>
                 <li class="nav-item">
