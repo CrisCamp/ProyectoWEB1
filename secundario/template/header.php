@@ -1,8 +1,8 @@
 <?php 
     include("../admin/bd.php");
     $url_index = "http://localhost/ProyectoWEB1/secundario/index.php";
-    $url_encuesta = "http://localhost/ProyectoWEB1/secundario/";
-    $url_apoyo = "http://localhost/ProyectoWEB1/secundario/";
+    $url_survey = "http://localhost/ProyectoWEB1/secundario/survey.php";
+    $url_becas = "http://localhost/ProyectoWEB1/secundario/becas.php";
     $url_testimonio = "http://localhost/ProyectoWEB1/secundario/";
     $url_perfil = "http://localhost/ProyectoWEB1/secundario/";
     $url_css = "http://localhost/ProyectoWEB1/css/styles.css";
@@ -16,6 +16,16 @@
     $sentencia=$conexion->prepare("SELECT * FROM tbl_materias;");
     $sentencia->execute();
     $lista_materias=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    //seleccionar registros de becas
+    $sentencia=$conexion->prepare("SELECT * FROM tbl_becas;");
+    $sentencia->execute();
+    $lista_becas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    //seleccionar registros de survey
+    $sentencia=$conexion->prepare("SELECT * FROM tbl_survey;");
+    $sentencia->execute();
+    $lista_survey=$sentencia->fetchAll(PDO::FETCH_ASSOC);    
 
     // Devolver datos como respuesta JSON esta se usara por medio de un script que sera llamado en el template de footer.php
     $response = array('informacion' => $lista_informacion, 'materias' => $lista_materias);
@@ -51,9 +61,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>">Informacion</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>">Encuestas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>">Apoyos Economicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#informacion">Informacion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_survey?>#survey">Encuestas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_becas?>#becas">Apoyos Economicos</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>">Testimonios</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo $url_perfil?>">Perfil</a></li>
                     <form class="my-2 my-lg-0" action="/action_page.php">

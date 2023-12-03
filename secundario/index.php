@@ -1,5 +1,5 @@
 <?php include("template/header.php");?>
-<section class="py-5">
+<section class="py-5" id = "informacion">
     <div class="container px-5">
         <h2 class="fw-bolder fs-5 mb-4">Carreras y lo que deberías saber</h2>
         <div class="row gx-5">
@@ -7,7 +7,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card h-100 shadow border-0">                            
                         <div class="card-body p-4">
-                            <!-- <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3"><?php echo $registros['nombre'] ?></div></a> -->
+                            <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3"><?php echo $registros['nombre'] ?></div></a>
                             <p class="card-text mb-0"><?php echo $registros['descripcion'] ?></p>                                
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
