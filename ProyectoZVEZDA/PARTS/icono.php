@@ -1,9 +1,9 @@
-<div class="floating-icon" data-toggle="modal" data-target="#menuModal">
+<div class="floating-icon" data-toggle="modal" data-target="#menuIcono">
     <img src="IMG/ico_accesibilidad.png" alt="Icono de Menú" width="50" height="50" class="rounded-circle">
 </div>
 
   <!-- The Modal -->
-<div class="modal" id="menuModal">
+<div class="modal" id="menuIcono">
     <div class="modal-dialog">
       <div class="modal-content">
       

@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+.elemento-detras {
+    z-index: 1;
+    margin-top: auto; 
+  }
 .floating-icon {
     position: fixed;
     bottom: 25px;
@@ -44,9 +48,5 @@ body {
   .fuente-dislexia {
     font-family: 'OpenDyslexic', sans-serif;
     word-spacing:  0.25em;
-  }
-  .elemento-detras {
-    z-index: -1;
-    margin-top: auto; 
   }
 </style>

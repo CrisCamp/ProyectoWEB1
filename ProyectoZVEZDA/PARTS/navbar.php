@@ -20,8 +20,16 @@
         <a class="nav-link" href="#">Recursos Financieros</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="login.php?action=login">Iniciar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.php?action=register">Registrarme</a>
+      </li>
+    </ul>
 
-    <form class="form-inline my-2 my-lg-0" action="busqueda.php" method="GET">
+    <form class="form-inline my-2 my-lg-0 ml-2" action="busqueda.php" method="GET">
       <input class="form-control mr-sm-2" type="text" name="buscar" placeholder="">
       <button class="btn btn-success" type="submit">Buscar</button>
     </form>
