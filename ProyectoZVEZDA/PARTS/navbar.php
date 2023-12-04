@@ -8,9 +8,6 @@
         <a class="nav-link" href="index.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pruebas de Orientación</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="#">Información de Carreras</a>
       </li>
       <li class="nav-item">
@@ -18,6 +15,13 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Recursos Financieros</a>
+      </li>
+    </ul>
+
+    
+    <ul class="navbar-nav ml-auto mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Pruebas de Orientación</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

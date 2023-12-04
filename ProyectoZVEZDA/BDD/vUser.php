@@ -27,7 +27,7 @@ if ($result) {
             exit();
         }
     } else {
-        header("Location: ../login.php?action=login&error=Error en la consulta: " . $mysqli->error);
+        header("Location: ../login.php?action=login&error=Usuario incorrecto");
         exit();
     }
 } else {

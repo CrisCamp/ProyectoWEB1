@@ -4,17 +4,17 @@
   require 'BDD/database.php';
 
   $elementosPorPagina = 10;
-  $totalElementos = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tablero ORDER BY id DESC"));
+  $totalElementos = mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM tablero ORDER BY id DESC"));
   $totalPaginas = ceil($totalElementos / $elementosPorPagina);
 
   $paginaActual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
   $indicePrimerElemento = ($paginaActual - 1) * $elementosPorPagina;
 
   $consultaPaginada = "SELECT * FROM tablero ORDER BY id DESC LIMIT $indicePrimerElemento, $elementosPorPagina";
-  $resultadosPaginados = mysqli_query($conn, $consultaPaginada);
+  $resultadosPaginados = mysqli_query($mysqli, $consultaPaginada);
 
   $consulta1 = "SELECT * FROM tablero ORDER BY id DESC";
-  $results1 = mysqli_query($conn, $consulta1);
+  $results1 = mysqli_query($mysqli, $consulta1);
 ?>
 <!DOCTYPE html>
 <html lang="en">

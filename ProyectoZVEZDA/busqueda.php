@@ -5,7 +5,7 @@
 
   $busqueda = $_GET['buscar'];
   $consulta = "SELECT * FROM tablero WHERE contenido LIKE '%$busqueda%' OR titulo LIKE '%$busqueda%'";
-  $result = mysqli_query($conn, $consulta);
+  $result = mysqli_query($mysqli, $consulta);
 ?>
 <!DOCTYPE html>
 <html lang="en">
