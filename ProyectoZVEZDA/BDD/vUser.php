@@ -12,15 +12,20 @@ if ($result) {
         $row = $result->fetch_assoc();
 
         if ($contrasena === $row['passw']){
-            if($row['tipo']!==NULL){
-
+            if($row['tipo']!==5){
+                session_start();
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['user_nick'] = $row['nick'];
+                $_SESSION['user_tipo'] = $row['tipo'];
+                header("Location: ../admin/index.php");
+                exit();
             }else{
                 session_start();
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['user_nick'] = $row['nick'];
 
                 header("Location: ../index.php");
-                exit();
+                
             }
         } else {
             header("Location: ../login.php?action=login&error=Contraseña incorrecta");

@@ -9,7 +9,7 @@
     </div>
     <div class="form-group contenido-texto">
       <label for="correo">Email:</label>
-      <input type="email" class="form-control" id="correo" placeholder="" name="correo" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$">
+      <input type="email" class="form-control" id="correo" placeholder="" name="correo" required>
       <div class="valid-feedback">Validado.</div>
       <div class="invalid-feedback">Por favor, escriba un correo valido.</div>
     </div>

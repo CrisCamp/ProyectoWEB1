@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <a class="navbar-brand" href="index.php">
-    <img src="IMG/Ceti.webp" alt="logo" style="width:40px;">
+    <img src="../IMG/Ceti.webp" alt="logo" style="width:40px;">
   </a>
   <div class="collapse navbar-collapse" id="navb">
     <ul class="navbar-nav ml-0">
@@ -18,36 +18,17 @@
       </li>
     </ul>
 
-    <?php
-    if ($vistaNav===0) {
-      echo '<button type="button" class="btn ml-0 text-secondary contenido-texto p-0" data-toggle="modal" data-target="#Aviso">Pruebas de Orientación</button>';
-       echo ' <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="login.php?action=login">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="login.php?action=register">Registrarme</a>
-                </li>
-              </ul>';
-    }
-    if ($vistaNav===1){
-      echo '<ul class="navbar-nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="#">Pruebas de Orientación</a>
-              </li>
-            </ul>';
-      echo '<div class="dropdown ml-auto">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                '.$nombreUsuario.'
-              </button>
-              <div class="dropdown-menu p-0 align-items-center" style="min-width: 0;">
-                <form method="post">
-                    <button type="submit" name="logout" class="btn btn-primary">Cerrar&nbsp;Sesión</button>
-                </form>
-              </div>
-            </div>';
-    }
-    
+    <?php  echo '
+      <div class="dropdown ml-auto">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            '.$nombreUsuario.'
+        </button>
+        <div class="dropdown-menu p-0 align-items-center" style="min-width: 0;">
+          <form method="post">
+              <button type="submit" name="logout" class="btn btn-primary">Cerrar&nbsp;Sesión</button>
+          </form>
+        </div>
+      </div>';
     ?>
 
     <form class="form-inline my-2 my-lg-0 ml-2" action="busqueda.php" method="GET">

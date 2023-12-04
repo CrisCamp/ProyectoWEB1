@@ -3,6 +3,8 @@
   
   require 'BDD/database.php';
 
+  $vistaNav=0;
+  
   if (isset($_GET['error'])) {
     $error_message = $_GET['error'];
     echo '<div class="alert alert-warning alert-dismissible mb-0">

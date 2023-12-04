@@ -3,7 +3,20 @@
   
   require 'BDD/database.php';
 
-  $elementosPorPagina = 10;
+  if (!isset($_SESSION['user_nick'])) {
+    $vistaNav=0;
+  }else{
+    $nombreUsuario = $_SESSION['user_nick'];
+    $vistaNav=1;
+  }
+
+  if (isset($_POST['logout'])) {
+    session_destroy();
+    header("Location: index.php");
+    exit();
+  }
+
+  $elementosPorPagina = 3;
   $totalElementos = mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM tablero ORDER BY id DESC"));
   $totalPaginas = ceil($totalElementos / $elementosPorPagina);
 

@@ -2,6 +2,19 @@
   session_start();
   
   require 'BDD/database.php';
+  
+  if (!isset($_SESSION['user_nick'])) {
+    $vistaNav=0;
+  }else{
+    $nombreUsuario = $_SESSION['user_nick'];
+    $vistaNav=1;
+  }
+
+  if (isset($_POST['logout'])) {
+    session_destroy();
+    header("Location: index.php");
+    exit();
+  }
 
   $busqueda = $_GET['buscar'];
   $consulta = "SELECT * FROM tablero WHERE contenido LIKE '%$busqueda%' OR titulo LIKE '%$busqueda%'";
