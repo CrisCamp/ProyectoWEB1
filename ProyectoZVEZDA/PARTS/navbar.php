@@ -8,13 +8,13 @@
         <a class="nav-link" href="index.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Información de Carreras</a>
+        <a class="nav-link" href="infoMateria.php">Información de Carreras</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Entrevistas</a>
+        <a class="nav-link" href="comentarios.php">Comentarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Recursos Financieros</a>
+        <a class="nav-link" href="becas.php">Recursos Financieros</a>
       </li>
     </ul>
 

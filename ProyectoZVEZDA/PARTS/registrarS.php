@@ -5,7 +5,7 @@
       <label for="uname">Usuario:</label>
       <input type="text" class="form-control" id="uname" placeholder="" name="uname" required>
       <div class="valid-feedback">Validado.</div>
-      <div class="invalid-feedback">Por favor, escriba un usuario valido.</div>
+      <div class="invalid-feedback">Ingrese un nombre de 8 a 30 caracteres.</div>
     </div>
     <div class="form-group contenido-texto">
       <label for="correo">Email:</label>
@@ -66,9 +66,9 @@
 (function() {
   'use strict';
 
-  function validateForm(form) {
+  function validateForm(form) {validarPass
     form.addEventListener('submit', function(event) {
-      if (form.checkValidity() === false || !validateCustomPatterns(form)) {
+      if (form.checkValidity() === false || !validarCorreo(form) || !validarNombre(form)) {
         event.preventDefault();
         event.stopPropagation();
       }
@@ -76,7 +76,7 @@
     }, false);
   }
 
-  function validateCustomPatterns(form) {
+  function validarCorreo(form) {
     // Validar el campo de correo electrónico con una expresión regular
     var correoInput = form.querySelector('[name="correo"]');
     var correoValue = correoInput.value.trim();
@@ -85,6 +85,20 @@
     if (!correoPattern.test(correoValue)) {
       // Mostrar mensaje de error
       correoInput.setCustomValidity('Por favor, ingrese un correo electrónico válido.');
+      return false;
+    } else {
+      correoInput.setCustomValidity('');
+      return true;
+    }
+  }
+
+  function validarNombre(form) {
+    var correoInput = form.querySelector('[name="uname"]');
+    var correoValue = correoInput.value.trim();
+    var correoPattern = /^.{8,30}$/;
+
+    if (!correoPattern.test(correoValue)) {
+      correoInput.setCustomValidity('Ingrese un nombre de 8 a 30 caracteres.');
       return false;
     } else {
       correoInput.setCustomValidity('');
