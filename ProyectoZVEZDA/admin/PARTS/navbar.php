@@ -11,7 +11,7 @@
         <a class="nav-link" href="secciones/informacion/index.php">Información de Carreras</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="secciones/experiencias/">Entrevistas</a>
+        <a class="nav-link" href="secciones/comentarios/">Comentarios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="secciones/becas/">Recursos Financieros</a>

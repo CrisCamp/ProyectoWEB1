@@ -28,14 +28,14 @@
   <?php require 'PARTS/navbar.php' ?>
       
   <section class="py-5" id = "informacion">
-    <div class="container px-5">
-        <h2 class="fw-bolder fs-5 mb-4">Carreras y lo que deberías saber</h2>
+    <div class="container px-5 contenido-texto">
+        <h2 class="fw-bolder fs-5 mb-4 contenido-texto">Carreras y lo que deberías saber</h2>
         <div class="row gx-5">
             <?php foreach($lista_informacion as $registros){?>
                 <div class="col-lg-4 mb-5">
                     <div class="card h-100 shadow border-0">                            
                         <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="materia.php?txtID=<?php echo $registros['ID'];?>"><div class="h5 card-title mb-3"><?php echo $registros['nombre'] ?></div></a>
+                            <a class="text-decoration-none link-dark stretched-link" href="materia.php?txtID=<?php echo $registros['ID'];?>"><div class="h5 card-title mb-3 contenido-texto"><?php echo $registros['nombre'] ?></div></a>
                             <p class="card-text mb-0"><?php echo $registros['descripcion'] ?></p>                                
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">

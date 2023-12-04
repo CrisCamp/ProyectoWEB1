@@ -16,8 +16,8 @@
     exit();
   }
 
-  $consulta = "SELECT * FROM tbl_becas;";
-  $lista_becas = mysqli_query($mysqli, $consulta);
+  $consulta1 = "SELECT * FROM cComentarios";
+  $results1 = mysqli_query($mysqli, $consulta1);
 
 ?>
 <!DOCTYPE html>
@@ -26,15 +26,14 @@
 <body id="body">
   <?php require 'PARTS/navbar.php' ?>
       
-    <div class="container p-2 my-3 border text-center">
+    <div class="container p-2 my-3 border-0 text-center">
         <h2 class="mb-3">Caja de Comentarios </h2>
         <p class="ml-1 mb-0 contenido-texto">Participa en el enriquesimiento de ideas y oportunidades en conjunto con alumnos y exalumnos
-    </div><br><br>
+    </div>
 
-
-    <div class="container p-2 my-3 border text-center mt-auto" style="width:450px">
+    <div class="container p-2 my-3 border text-center mt-4" style="width:450px">
   <img src="IMG/Ceti.webp" width="100" height="100" class="rounded-circle mt-3">
-  <form action="BDD/comen.php" class="needs-validation mt-4" method="post" novalidate>
+  <form action="BDD/comen.php" class="needs-validation mt-4" method="post" novalidate >
   <div class="form-group contenido-texto">
       <label for="uname">Nombre:</label>
       <input type="text" class="form-control" id="uname" placeholder="" name="uname" required>
@@ -50,6 +49,34 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+
+  
+  <br>
+  <?php
+    while ($publicacion = mysqli_fetch_array($results1)) {
+    ?>
+    <section class="py-5">
+        <div class="container px-5 mb-1">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    <!-- Project Card 1-->
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-1">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                <?php echo '<h4 class="fw-bolder contenido-texto">' . $publicacion['nombre'] . '</h4>'; ?>
+                                <?php  echo '<p class="contenido-texto">' . $publicacion['comentario'] .'</p>';?>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php    }    ?>
 
 <script>
 (function() {

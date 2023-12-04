@@ -43,13 +43,13 @@
   <div class="collapse navbar-collapse" id="navb">
     <ul class="navbar-nav ml-0">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo $url_tope;?>">Inicio</a>
+        <a class="nav-link" href="<?php echo $url_base;?>">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $url_base;?>/secciones/informacion/">Información de Carreras</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo $url_base;?>/secciones/experiencias/">Entrevistas</a>
+        <a class="nav-link" href="<?php echo $url_base;?>/secciones/comentarios/">Comentarios</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $url_base;?>/secciones/becas/">Recursos Financieros</a>
