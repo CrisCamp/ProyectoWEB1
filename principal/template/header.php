@@ -60,10 +60,7 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#services">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#portfolio">Carreras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#about">Acerca</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#team">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#team">Equipo</a></li>
                     </li>
                 </ul>
             </div>

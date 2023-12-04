@@ -57,10 +57,9 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Conoce a nuestro equipo</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <?php foreach ($lista_equipo as $registro) { ?>
             <div class="row">
+            <?php foreach ($lista_equipo as $registro) { ?>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="<?php echo $url_img ?>/team/<?php echo $registro["imagen"]?>" alt="..." />
