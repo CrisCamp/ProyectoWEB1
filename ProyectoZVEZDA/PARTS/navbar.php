@@ -1,3 +1,6 @@
+<?php
+$url_index = "http://localhost/ProyectoWEB1/principal/index.php";
+?>
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <a class="navbar-brand" href="index.php">
     <img src="IMG/Ceti.webp" alt="logo" style="width:40px;">
@@ -15,6 +18,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="becas.php">Recursos Financieros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo $url_index?>">Nosotros</a>
       </li>
     </ul>
 

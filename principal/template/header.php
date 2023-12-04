@@ -5,6 +5,7 @@ $url_about = "http://localhost/ProyectoWEB1/principal/about.php";
 $url_login = "http://localhost/ProyectoWEB1/principal/login.php";
 $url_signup = "http://localhost/ProyectoWEB1/principal/signup.php";
 $url_css = "http://localhost/ProyectoWEB1/css/styles.css";
+$url_vezda = "http://localhost/ProyectoWEB1/ProyectoZVEZDA/index.php";
 
 //Url´s para las imagenes de los templates
 $url_img = "http://localhost/ProyectoWEB1/assets/img";
@@ -63,16 +64,6 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                     <li class="nav-item"><a class="nav-link" href="<?php echo $url_index?>#portfolio">Carreras</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#about">Acerca</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo $url_about?>#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_login?>#login">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $url_signup?>#signup">Sign up</a></li>
-                    <form class="my-2 my-lg-0" action="/action_page.php">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-success" type="submit">Buscar</button>
-                            </div>
-                        </div>
-                    </form>
                     </li>
                 </ul>
             </div>
@@ -84,6 +75,6 @@ $lista_equipo=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
             <div class="masthead-subheading">Bienvenido</div>
             <div class="masthead-heading text-uppercase">Un gusto conocerte</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="<?php echo $url_index?>#services">Conoce más</a>
+            <a class="btn btn-primary btn-xl text-uppercase" href="<?php echo $url_vezda?>">Regresar</a>
         </div>
     </header>
