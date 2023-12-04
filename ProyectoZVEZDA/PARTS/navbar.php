@@ -39,7 +39,7 @@ $url_index = "http://localhost/ProyectoWEB1/principal/index.php";
     if ($vistaNav===1){
       echo '<ul class="navbar-nav">
               <li class="nav-item ">
-                <a class="nav-link" href="#">Pruebas de Orientación</a>
+                <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSegNNTIaXWU50vo5_zQwSLkrdD9E6fucFF7xa9OjVNelcGrgA/viewform?usp=sf_link">Pruebas de Orientación</a>
               </li>
             </ul>';
       echo '<div class="dropdown ml-auto">
