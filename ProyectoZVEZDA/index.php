@@ -1,8 +1,7 @@
 <?php
   session_start();
   
-  require 'BDD/database.php';    
-  require 'bdd/databaseP.php';
+  require 'BDD/database.php';
 
   $elementosPorPagina = 10;
   $totalElementos = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tablero ORDER BY id DESC"));

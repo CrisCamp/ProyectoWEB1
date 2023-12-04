@@ -1,6 +1,6 @@
 <div class="container p-2 my-3 border text-center mt-auto" style="width:450px">
   <img src="IMG/Ceti.webp" width="100" height="100" class="rounded-circle mt-3">
-  <form action="/action_page.php" class="needs-validation mt-4" novalidate>
+  <form action="BDD/vUser.php" class="needs-validation mt-4" method="post" novalidate>
     <div class="form-group contenido-texto">
       <label for="uname">Usuario:</label>
       <input type="text" class="form-control" id="uname" placeholder="" name="uname" required>
@@ -9,8 +9,8 @@
     </div>
     <div class="form-group contenido-texto">
       <label for="pwd">Contraseña:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
+      <input type="password" class="form-control" id="pwd" placeholder="" name="pwd" required>
+      <div class="valid-feedback">Validado.</div>
       <div class="invalid-feedback">Por favor, escriba una contraseña valida.</div>
     </div>
     <div class="form-group contenido-texto align-items-center">

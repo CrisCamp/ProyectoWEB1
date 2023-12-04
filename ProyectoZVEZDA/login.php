@@ -1,9 +1,13 @@
 <?php
   session_start();
   
-  require 'BDD/database.php';    
-  require 'bdd/databaseP.php';
+  require 'BDD/database.php';
 
+  if (isset($_GET['error'])) {
+    $error_message = $_GET['error'];
+    echo '<div class="alert alert-warning alert-dismissible mb-0">
+    <button type="button" class="close" data-dismiss="alert">&times;</button><strong>ERROR!</strong> ' . $error_message .'</div>';
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

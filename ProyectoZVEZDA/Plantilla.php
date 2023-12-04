@@ -1,8 +1,7 @@
 <?php
   session_start();
   
-  require 'BDD/database.php';    
-  require 'bdd/databaseP.php';
+  require 'BDD/database.php';
 
   $busqueda = $_GET['buscar'];
   $consulta = "SELECT * FROM tablero WHERE contenido LIKE '%$busqueda%' OR titulo LIKE '%$busqueda%'";
