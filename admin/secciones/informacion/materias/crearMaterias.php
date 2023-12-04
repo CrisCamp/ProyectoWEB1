@@ -7,6 +7,7 @@ if (isset($_GET['txtID'])){
 
 if($_POST){
     $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
+    $semester = (isset($_POST['semester']))?$_POST['semester']:"";
     $pdf = (isset($_FILES["pdf"]["name"]))?$_FILES["pdf"]["name"]:"";
 
     //en esta parte se esta validando que si existe una pdf le asignamos un nuevo nombre
@@ -22,8 +23,8 @@ if($_POST){
 
     // Definir
     $sentencia=$conexion->prepare("INSERT INTO tbl_materias
-    (ID, id_info, nombre, plan) VALUES 
-    (NULL, :id_info, :nombre, :plan);");
+    (ID, id_info, nombre, plan, semester) VALUES 
+    (NULL, :id_info, :nombre, :plan, :semester);");
 
     //donde encuentres id_info pon la varible $id_info en la sentencia de arriba
     $sentencia->bindParam(":id_info",$id_info);
@@ -31,6 +32,8 @@ if($_POST){
     $sentencia->bindParam(":nombre",$nombre);
     //donde encuentres plan pon la varible $nombre_archivo_pdf en la sentencia de arriba
     $sentencia->bindParam(":plan",$nombre_archivo_pdf);
+    //donde encuentres plan pon la varible $semester en la sentencia de arriba
+    $sentencia->bindParam(":semester",$semester);
     //Ejecutar
     $sentencia->execute();
     
@@ -45,6 +48,12 @@ include("../../../templates/header.php"); ?>
     </div>
     <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label for="semester" class="form-label">Semester:</label>
+                <input type="number"
+                    class="form-control" name="semester" id="semester" aria-describedby="helpId" placeholder="Semester">
+            </div> 
 
             <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>

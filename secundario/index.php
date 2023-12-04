@@ -7,7 +7,7 @@
                 <div class="col-lg-4 mb-5">
                     <div class="card h-100 shadow border-0">                            
                         <div class="card-body p-4">
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3"><?php echo $registros['nombre'] ?></div></a>
+                            <a class="text-decoration-none link-dark stretched-link" href="materia.php?txtID=<?php echo $registros['ID'];?>"><div class="h5 card-title mb-3"><?php echo $registros['nombre'] ?></div></a>
                             <p class="card-text mb-0"><?php echo $registros['descripcion'] ?></p>                                
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -21,19 +21,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php foreach($lista_materias as $registros2){
-                            if($registros['ID'] == $registros2['id_info']){?>
-                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                <div class="d-flex align-items-end justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="small">
-                                            <!-- Asignar un identificador único al botón -->
-                                            <a href="descarga.php?txtID=<?php echo $registros2['ID']?>"><?php echo $registros2['nombre']?></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php }}?>
                     </div>                        
                 </div>
             <?php }?>

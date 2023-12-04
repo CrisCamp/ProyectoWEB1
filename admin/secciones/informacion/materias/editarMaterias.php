@@ -10,7 +10,8 @@
         $sentencia->execute();
         $registro=$sentencia->fetch(PDO::FETCH_LAZY);
 
-        $id_info = $registro['id_info']; 
+        $id_info = $registro['id_info'];
+        $semester = $registro['semester']; 
         $nombre = $registro['nombre'];
         $pdf = $registro['plan'];
     }
@@ -18,14 +19,16 @@
     if($_POST){
         $txtID = (isset($_POST['txtID']))?$_POST['txtID']:"";
         $nombre = (isset($_POST['nombre']))?$_POST['nombre']:"";
+        $semester = (isset($_POST['semester']))?$_POST['semester']:"";
         $pdf = (isset($_FILES["pdf"]["name"]))?$_FILES["pdf"]["name"]:"";
 
         //la variable conexion se toma del documento bd.php
         $sentencia=$conexion->prepare("UPDATE tbl_materias SET
-        nombre = :nombre WHERE ID =:id;");
+        semester = :semester, nombre = :nombre WHERE ID =:id;");
 
         $sentencia->bindParam(":id",$txtID);
         $sentencia->bindParam(":nombre",$nombre);
+        $sentencia->bindParam(":semester",$semester);
         $sentencia->execute();
 
         //Se debe verificar que el archivo se haya enviado
@@ -75,6 +78,12 @@
                 class="form-control" name="txtID" id="txtID" aria-describedby="helpId" placeholder="ID">
             </div>
 
+            <div class="mb-3">
+            <label for="semester" class="form-label">Semester:</label>
+            <input type="number" value="<?php echo $semester?>"
+                class="form-control" name="semester" id="semester" aria-describedby="helpId" placeholder="Semester">
+            </div>
+                        
             <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
             <input type="text" value="<?php echo $nombre?>"

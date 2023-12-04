@@ -32,6 +32,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">ID_Carrera</th>
+                        <th scope="col">Semestre</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Plan de estudios</th>                     
                         <th scope="col">Acciones</th>
@@ -42,6 +43,7 @@
                     <tr class="">
                         <td><?php echo $registros["ID"]?></td>
                         <td><?php echo $registros["id_info"]?></td>
+                        <td><?php echo $registros["semester"]?></td>
                         <td><?php echo $registros["nombre"]?></td>
                         <td><?php echo $registros["plan"]?></td>
                         <td>
