@@ -33,7 +33,7 @@
 
     <div class="container p-2 my-3 border text-center mt-4" style="width:450px">
   <img src="IMG/Ceti.webp" width="100" height="100" class="rounded-circle mt-3">
-  <form action="BDD/comen.php" class="needs-validation mt-4" method="post" novalidate>
+  <form action="BDD/comen.php" class="needs-validation mt-4" method="post" novalidate >
   <div class="form-group contenido-texto">
       <label for="uname">Nombre:</label>
       <input type="text" class="form-control" id="uname" placeholder="" name="uname" required>
@@ -50,19 +50,33 @@
   </form>
 </div>
 
-<?php
+
+  
+  <br>
+  <?php
     while ($publicacion = mysqli_fetch_array($results1)) {
     ?>
-        <div class="container p-2 my-3 border text-center border-0" style="width:450px">
-        <?php echo '<h2 class="mb-3">' . $publicacion['nombre'] . '</h2>'; ?>
-          <div class="p-1 my-3 border-0 d-flex align-items-center">
-            <?php
-            echo '<p class="ml-1 mb-0 contenido-texto">' . $publicacion['comentario'] .'<br>';
-            ?>
-        </div></div>
+    <section class="py-5">
+        <div class="container px-5 mb-1">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    <!-- Project Card 1-->
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-1">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                <?php echo '<h4 class="fw-bolder contenido-texto">' . $publicacion['nombre'] . '</h4>'; ?>
+                                <?php  echo '<p class="contenido-texto">' . $publicacion['comentario'] .'</p>';?>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <?php    }    ?>
-  </div>
-  <br>
 
 <script>
 (function() {
