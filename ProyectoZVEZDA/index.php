@@ -16,7 +16,7 @@
     exit();
   }
 
-  $elementosPorPagina = 3;
+  $elementosPorPagina = 1;
   $totalElementos = mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM tablero ORDER BY id DESC"));
   $totalPaginas = ceil($totalElementos / $elementosPorPagina);
 
@@ -40,10 +40,10 @@
     ?>
         <div class="container p-2 my-3 border text-center">
         <?php echo '<h2 class="mb-3">' . $publicacion['titulo'] . '</h2>'; ?>
-          <div class="p-0 my-3 border-0 d-flex align-items-center">
+          <div class="p-1 my-3 border-0 d-flex align-items-center">
             <?php
             echo '<img src="IMG/' . $publicacion['idImagen'] . '" class="rounded" width="200" height="200">';
-            echo '<p class="ml-3 mb-0 contenido-texto">' . $publicacion['contenido'] .'<br>';
+            echo '<p class="ml-1 mb-0 contenido-texto">' . $publicacion['contenido'] .'<br>';
             ?>
         </div></div>
     <?php    }    ?>

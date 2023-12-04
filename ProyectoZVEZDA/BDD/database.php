@@ -1,12 +1,12 @@
 <?php
-	$server = 'localhost';
-$username = 'admin';
-$password = 'a01020304b';
-$database = 'ProyectoCeti';
+	$server = 'bpbgexskftr7azw9xubh-mysql.services.clever-cloud.com';
+    $username = 'u0zzibaomfiuuuhw';
+    $password = 'nYwYpmoFrx3xQ4uVwJgq';
+    $database = 'bpbgexskftr7azw9xubh';
 
-$mysqli = new mysqli($server, $username, $password, $database);
+    $mysqli = new mysqli($server, $username, $password, $database);
 
-if ($mysqli->connect_error) {
-    die("Conexión fallida: " . $mysqli->connect_error);
-}
+    if ($mysqli->connect_error) {
+        die("Conexión fallida: " . $mysqli->connect_error);
+    }
 ?>
