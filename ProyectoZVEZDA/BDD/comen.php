@@ -2,7 +2,7 @@
 include 'database.php';
 
 $nombre = $_POST['uname'];
-$comentario = $_POST['correo'];
+$comentario = $_POST['comen'];
 
 $sql = "INSERT INTO cComentarios (nombre, comentario) VALUES ('$nombre', '$comentario')";
 

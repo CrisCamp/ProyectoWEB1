@@ -16,8 +16,8 @@
     exit();
   }
 
-  $consulta = "SELECT * FROM tbl_becas;";
-  $lista_becas = mysqli_query($mysqli, $consulta);
+  $consulta1 = "SELECT * FROM cComentarios";
+  $results1 = mysqli_query($mysqli, $consulta1);
 
 ?>
 <!DOCTYPE html>
@@ -26,13 +26,12 @@
 <body id="body">
   <?php require 'PARTS/navbar.php' ?>
       
-    <div class="container p-2 my-3 border text-center">
+    <div class="container p-2 my-3 border-0 text-center">
         <h2 class="mb-3">Caja de Comentarios </h2>
         <p class="ml-1 mb-0 contenido-texto">Participa en el enriquesimiento de ideas y oportunidades en conjunto con alumnos y exalumnos
-    </div><br><br>
+    </div>
 
-
-    <div class="container p-2 my-3 border text-center mt-auto" style="width:450px">
+    <div class="container p-2 my-3 border text-center mt-4" style="width:450px">
   <img src="IMG/Ceti.webp" width="100" height="100" class="rounded-circle mt-3">
   <form action="BDD/comen.php" class="needs-validation mt-4" method="post" novalidate>
   <div class="form-group contenido-texto">
@@ -50,6 +49,20 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+<?php
+    while ($publicacion = mysqli_fetch_array($results1)) {
+    ?>
+        <div class="container p-2 my-3 border text-center border-0" style="width:450px">
+        <?php echo '<h2 class="mb-3">' . $publicacion['nombre'] . '</h2>'; ?>
+          <div class="p-1 my-3 border-0 d-flex align-items-center">
+            <?php
+            echo '<p class="ml-1 mb-0 contenido-texto">' . $publicacion['comentario'] .'<br>';
+            ?>
+        </div></div>
+    <?php    }    ?>
+  </div>
+  <br>
 
 <script>
 (function() {
